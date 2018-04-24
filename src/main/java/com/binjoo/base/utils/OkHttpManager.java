@@ -10,6 +10,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -60,5 +61,9 @@ public class OkHttpManager {
 
     public Response execute() throws Exception {
         return okHttpClient.newCall(this.build()).execute();
+    }
+
+    public Dispatcher dispatcher() throws Exception {
+        return okHttpClient.dispatcher();
     }
 }
